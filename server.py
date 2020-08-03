@@ -1,10 +1,10 @@
 from flask import Flask, render_template
 app = Flask(__name__)
 
-
-@app.route("/") # Revisit decorators if you unclear of this syntax
-def index():
-    return render_template('index.html') # by default looks for index.html inside a templates folder in the same directory as this script.
+@app.route("/<name>")
+def index(name):
+    name = name.upper()
+    return render_template('index.html', name=name)
 
 @app.route("/another")
 def show():
